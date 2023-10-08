@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { useForm, SubmitHandler, FieldValues } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 
@@ -10,13 +10,13 @@ const schema = yup
   .required();
 
 export default function Header() {
-  const { register, handleSubmit } = useForm({
+  const { register } = useForm({
     resolver: yupResolver(schema),
   });
-  const onSubmit: SubmitHandler<FieldValues> = (data: { search: string }) => {
-    // TODO -> send request and get projects
-    console.log(data.search);
-  };
+  //   const onSubmit: SubmitHandler<FieldValues> = (data: { search: string }) => {
+  //     // TODO -> send request and get projects
+  //     console.log(data.search);
+  //   };
 
   return (
     <HeaderContainer>
@@ -28,7 +28,7 @@ export default function Header() {
             src="/search-icon.png"
             alt="search icon"
             style={{ cursor: "pointer" }}
-            onClick={handleSubmit(onSubmit)}
+            // onClick={handleSubmit(onSubmit)}
           />
         </SearchWrapper>
       </div>

@@ -1,5 +1,8 @@
 import styled from "styled-components";
 import GlobeIcon from "/globe.svg";
+import LikeIcon from "/thumbs-up.svg";
+import CommentIcon from "/comment-icon.svg";
+import EyeIcon from "/eye.svg";
 
 type TPostProps = {
   post: {
@@ -36,7 +39,29 @@ export default function Post(props: TPostProps) {
         alt="post photo"
         style={{ marginTop: "1.2rem" }}
       />
-      <PostFooter></PostFooter>
+      <PostFooter>
+        <LeftContainer>
+          <LikeCommentDiv>
+            <img
+              src={LikeIcon}
+              alt="thumbs up/like icon"
+              style={{ cursor: "pointer" }}
+            />
+            <LikeCommentText>Like</LikeCommentText>
+          </LikeCommentDiv>
+          <LikeCommentDiv>
+            <img
+              src={CommentIcon}
+              alt="thumbs up/like icon"
+              style={{ cursor: "pointer" }}
+            />
+            <LikeCommentText>Comment</LikeCommentText>
+          </LikeCommentDiv>
+        </LeftContainer>
+        <ViewsContainer>
+          64 Views • <img src={EyeIcon} alt="eye/view icon" />
+        </ViewsContainer>
+      </PostFooter>
     </PostContainer>
   );
 }
@@ -87,10 +112,37 @@ const PostDescription = styled.p`
 `;
 
 const PostFooter = styled.div`
-  padding: 1.2rem 2.4rem 1.6rem;
+  padding: 1.2rem 2.4rem 0;
   display: flex;
   width: 100%;
   justify-content: space-between;
   margin-top: 1.2rem;
   border-top: 1px solid var(--white-20, #333);
+`;
+
+const LeftContainer = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+`;
+
+const LikeCommentDiv = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+`;
+
+const LikeCommentText = styled.p`
+  color: var(--white-100);
+  font-size: 1.8rem;
+  font-weight: 400;
+`;
+
+const ViewsContainer = styled.div`
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  color: var(--white-70, #b3b3b3);
+  font-size: 1.6rem;
+  font-weight: 400;
 `;
