@@ -42,6 +42,9 @@ const HeaderContainer = styled.header`
   justify-content: space-between;
   padding: 1.5rem 3.5rem;
   background-color: var(--pannel-color);
+  position: sticky;
+  top: 0;
+  z-index: 1;
 `;
 
 const Input = styled.input`
